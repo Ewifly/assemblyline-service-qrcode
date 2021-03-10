@@ -8,9 +8,9 @@ from assemblyline.common.hexdump import hexdump
 from assemblyline_v4_service.common.base import ServiceBase
 from assemblyline_v4_service.common.result import Result, ResultSection, BODY_FORMAT
 
-classe QRCode(ServiceBase):
-def __init__(self, config=None):
-    super(QRCode, self).__init__(config)
+class QRCode(ServiceBase):
+    def __init__(self, config=None):
+        super(QRCode, self).__init__(config)
 
     def start(self):
         self.log.info(f"start() from {self.service_attributes.name} service called")
