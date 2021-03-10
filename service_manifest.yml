@@ -1,0 +1,28 @@
+name: QRCode
+version: $SERVICE_TAG
+description: >
+  ALv4 QRCode url extractor
+accepts: image/.*
+rejects: empty|metadata/.*
+
+stage: EXTRACT
+category: Extraction
+
+file_required: true
+# Maximum execution time the service has before it's considered to be timed out
+timeout: 10
+disable_cache: false
+
+# is the service enabled by default
+enabled: true
+
+docker_config:
+  image: localhost:5000/ewi/assemblyline-service-qrcode:$SERVICE_TAG
+
+update_config:
+  update_interval_seconds: 3600
+  generates_signatures: false
+  method: run
+  run_options:
+    allow_internet_access: false
+    image: localhost:5000/ewi/assemblyline-service-qrcode:$SERVICE_TAG
