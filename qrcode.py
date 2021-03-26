@@ -16,9 +16,9 @@ class QRCode(ServiceBase):
         self.log.info(f"start() from {self.service_attributes.name} service called")
 
     def execute(self, request):
-        qr = xqrcode.decode_from_file(request.file_path)
-        result_url = qr[0]['data']
         if len(qr) > 0:
+            qr = xqrcode.decode_from_file(request.file_path)
+            result_url = qr[0]['data']
             result = Result()
             text_section = ResultSection('QR Code')
             text_section.add_line(result_url)
